@@ -1,0 +1,15 @@
+# Environment variables
+.env
+backend/.env
+client/.env
+
+# Node.js dependencies
+/client/node_modules
+/backend/node_modules
+
+# Vite build output
+/client/dist
+
+# Caches and debug logs
+.DS_Store
+npm-debug.log

@@ -1,0 +1,30 @@
+{
+  "manifest_version": 3,
+  "name": "Password Manager Autofill",
+  "version": "1.0",
+  "description": "Autofills credentials from your password manager.",
+  "permissions": [
+    "tabs",
+    "scripting"
+  ],
+  "host_permissions": [
+    "http://localhost:5000/*",
+    "<all_urls>"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": "icon.png"
+  },
+  "icons": {
+    "48": "icon.png"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["http://localhost:5173/*"],
+      "js": ["content.js"]
+    }
+  ]
+}

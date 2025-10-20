@@ -1,0 +1,27 @@
+@import "tailwindcss";
+
+/* Add this to your src/index.css file */
+
+/* Custom Scrollbar Styles (WebKit) */
+.password-table-container::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+.password-table-container::-webkit-scrollbar-track {
+  background: #fce7f3; /* pink-100 */
+  border-radius: 10px;
+}
+.password-table-container::-webkit-scrollbar-thumb {
+  background-color: #f9a8d4; /* pink-300 */
+  border-radius: 10px;
+  border: 2px solid #fce7f3;
+}
+.password-table-container::-webkit-scrollbar-thumb:hover {
+  background-color: #ec4899; /* pink-500 */
+}
+
+/* Basic Firefox support */
+.password-table-container {
+  scrollbar-width: thin;
+  scrollbar-color: #f9a8d4 #fce7f3;
+}

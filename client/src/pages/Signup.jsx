@@ -9,7 +9,7 @@ export default function Signup() {
 
   const signup = async () => {
     try {
-      const res = await fetch("import.meta.env.VITE_API_BASE_URL/auth/signup", {
+      const res = await fetch("https://password-manager-app-t77e.onrender.com/auth/signup", {
         method: "POST",
         credentials: "include",
         headers: { "Content-Type": "application/json" },

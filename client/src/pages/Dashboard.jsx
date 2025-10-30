@@ -93,10 +93,10 @@ export default function Dashboard() {
       return;
     }
     const body = { website, username, password };
-    let url = "import.meta.env.VITE_API_BASE_URL/passwords";
+    let url = "https://password-manager-app-t77e.onrender.com/passwords";
     let method = "POST";
     if (editingId) {
-      url = `import.meta.env.VITE_API_BASE_URL/${editingId}`;
+      url = `https://password-manager-app-t77e.onrender.com/${editingId}`;
       method = "PUT";
     }
     try {
@@ -119,7 +119,7 @@ export default function Dashboard() {
 
   const loadPasswords = async () => {
     try {
-      const res = await fetch("import.meta.env.VITE_API_BASE_URL/passwords", {
+      const res = await fetch("https://password-manager-app-t77e.onrender.com/passwords", {
         credentials: "include",
       });
       if (res.status === 401) {
@@ -148,7 +148,7 @@ export default function Dashboard() {
 
   const handleDelete = async (id) => {
     if (window.confirm("Are you sure?")) {
-      await fetch(`import.meta.env.VITE_API_BASE_URL/passwords/${id}`, {
+      await fetch(`https://password-manager-app-t77e.onrender.com/passwords/${id}`, {
         method: "DELETE",
         credentials: "include",
       });
@@ -157,7 +157,7 @@ export default function Dashboard() {
   };
 
   const handleLogout = async () => {
-    await fetch("import.meta.env.VITE_API_BASE_URL/logout", {
+    await fetch("https://password-manager-app-t77e.onrender.com/logout", {
       method: "POST",
       credentials: "include",
     });
@@ -166,7 +166,7 @@ export default function Dashboard() {
 
   const handlePinToggle = async (id) => {
     try {
-      const res = await fetch(`import.meta.env.VITE_API_BASE_URL/${id}/pin`, {
+      const res = await fetch(`https://password-manager-app-t77e.onrender.com/${id}/pin`, {
         method: "PUT",
         credentials: "include",
       });

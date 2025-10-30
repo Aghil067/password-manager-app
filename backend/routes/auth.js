@@ -56,10 +56,10 @@ router.get("/me", (req, res) => {
 router.get("/google", passport.authenticate("google", { scope: ["profile", "email"] }));
 
 router.get("/google/callback",
-    passport.authenticate("google", { failureRedirect: `${process.env.FRONTEND_ROOT || "http://localhost:5173"}/`, session: true }),
+    passport.authenticate("google", { failureRedirect: `https://passmanager-seven.vercel.app/`, session: true }),
     (req, res) => {
         // set success redirect to frontend dashboard
-        res.redirect(`${process.env.FRONTEND_ROOT || "http://localhost:5173"}/dashboard`);
+        res.redirect(`https://passmanager-seven.vercel.app/dashboard`);
     }
 );
 

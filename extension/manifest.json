@@ -9,7 +9,7 @@
   ],
   "host_permissions": [
     "http://localhost:5000/*",
-    "<all_urls>"
+    "https://password-manager-app-t77e.onrender.com"
   ],
   "action": {
     "default_popup": "popup.html",
@@ -23,7 +23,7 @@
   },
   "content_scripts": [
     {
-      "matches": ["http://localhost:5173/*"],
+      "matches": ["http://localhost:5173/*","https://passmanager-seven.vercel.app/*"],
       "js": ["content.js"]
     }
   ]

@@ -60,7 +60,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   const listElement = document.getElementById('passwords-list');
 
   try {
-    const res = await fetch('http://localhost:5000/passwords', { credentials: 'include' });
+    const res = await fetch('https://password-manager-app-t77e.onrender.com/passwords', { credentials: 'include' });
 
     if (res.status === 401) {
       listElement.innerHTML = '<li class="error-message">Error: Please log in to your password manager first.</li>';

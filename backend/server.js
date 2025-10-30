@@ -16,17 +16,20 @@ import connectDB from "./config/db.js";
 const app = express();
 const PORT = process.env.PORT || 5000;
 
+// ✅ 1. ADD THIS LINE: Tell Express to trust OnRender's proxy
+app.set('trust proxy', 1);
+
 // Connect DB
 connectDB(process.env.MONGO_URI);
 
 // Middleware
-// ✅ This MUST specify your frontend URL to be secure
 app.use(cors({
   origin: process.env.FRONTEND_ROOT || "http://localhost:5173",
   credentials: true
 }));
 app.use(express.json());
 
+// ✅ 2. UPDATE THIS WHOLE SECTION for deployment
 // Sessions (store in Mongo so sessions persist)
 app.use(session({
   secret: process.env.SESSION_SECRET,
@@ -34,7 +37,10 @@ app.use(session({
   saveUninitialized: false,
   store: MongoStore.create({ mongoUrl: process.env.MONGO_URI }),
   cookie: {
-    maxAge: 1000 * 60 * 60 * 24 // 1 day
+    maxAge: 1000 * 60 * 60 * 24, // 1 day
+    httpOnly: true, // Standard security practice
+    secure: true,   // MUST be true for cross-site cookies (HTTPS)
+    sameSite: 'none' // MUST be 'none' for cross-site cookies
   }
 }));
 

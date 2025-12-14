@@ -12,7 +12,7 @@ export default function Login() {
 
   const login = async (e) => {
     // Add event parameter and preventDefault for form submission
-    e.preventDefault(); 
+    e.preventDefault();
     
     try {
       // ✅ Use the variable API_BASE_URL
